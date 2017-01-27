@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	
+
 	def create
 		@episode = Episode.find(params[:episode_id])
 		@comment = @episode.comments.new(comment_params)
@@ -18,6 +18,10 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		@comment = Comment.find(params[:id])
+		episode = @comment.episode
+		@comment.destroy
+		redirect_to episode
 	end
 
 	private
