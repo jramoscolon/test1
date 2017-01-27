@@ -10,6 +10,7 @@ class EpisodesController < ApplicationController
   # GET /episodes/1
   # GET /episodes/1.json
   def show
+    @comments = @episode.comments.order("created_at DESC")
   end
 
   # GET /episodes/new
