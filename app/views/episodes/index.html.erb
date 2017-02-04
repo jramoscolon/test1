@@ -2,6 +2,12 @@
 
 <h1>Listing Episodes</h1>
 
+<p>
+  Download:
+  <%= link_to "CSV", episodes_path(format: "csv") %>
+  <%= link_to "Excel", episodes_path(format: "xls") %>
+</p>
+
 <table>
   <thead>
     <tr>
@@ -16,7 +22,7 @@
     <% @episodes.each do |episode| %>
       <tr>
         <td><%= episode.name %></td>
-        <td><%= episode.description %></td>
+        <td><%= truncate(episode.description, :length => 25) %></td>
         <td><%= image_tag(episode.image_url, width: "70") %></td>
         <td><%= link_to 'Show', episode %></td>
         <td><%= link_to 'Edit', edit_episode_path(episode) %></td>

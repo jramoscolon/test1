@@ -5,6 +5,12 @@ class EpisodesController < ApplicationController
   # GET /episodes.json
   def index
     @episodes = Episode.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data text: @episodes.to_csv }
+      # For excel exporting
+      format.xls # { send_data @episodes.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /episodes/1
