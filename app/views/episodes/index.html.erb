@@ -13,6 +13,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th>Status</th>
       <th>Image url</th>
       <th colspan="3"></th>
     </tr>
@@ -23,6 +24,7 @@
       <tr>
         <td><%= episode.name %></td>
         <td><%= truncate(episode.description, :length => 25) %></td>
+        <td><%= episode.status_type %></td>
         <td><%= image_tag(episode.image_url, width: "70") %></td>
         <td><%= link_to 'Show', episode %></td>
         <td><%= link_to 'Edit', edit_episode_path(episode) %></td>
